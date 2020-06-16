@@ -1,0 +1,27 @@
+.wrapper {
+  margin: 0 auto;
+  padding-top: 5rem;
+  width: 600px;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+.ToDoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+// .space_for_button {
+//   display: none;
+// }
+.ToDoItem :hover .space_for_button {
+  display: inline !important;
+  color: red;
+}

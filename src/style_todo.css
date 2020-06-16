@@ -1,0 +1,31 @@
+.wrapper {
+  margin: 0 auto;
+  padding-top: 5rem;
+  width: 600px;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+.ToDoItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.ToDoItem :hover .space_for_button {
+  display: inline !important;
+  color: red;
+}
+/*# sourceMappingURL=style_todo.css.map */
