@@ -14,8 +14,11 @@ function ToDoList(props) {
           <ToDoItem
             todo={todo}
             key={todo.id}
+            id={todo.id}
+            title={todo.title}
             index={index}
             onChange={props.onToggle}
+            toDoList={props.todos}
           />
         );
       })}

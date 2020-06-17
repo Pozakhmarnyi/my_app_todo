@@ -11,6 +11,10 @@ function AppTodo() {
     { id: 3, completed: false, title: "Купити молоко" },
   ]);
 
+  // function actionEditList() {
+  //   setTodos(props);
+  // }
+
   function toggleTodo(id) {
     setTodos(
       todos.map((todo) => {
