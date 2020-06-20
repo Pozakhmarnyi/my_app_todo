@@ -1,8 +1,8 @@
 import React from "react";
-import ToDo from "./ToDo";
+import AppTodo from "./appTodo";
 
 function App() {
-  return <ToDo />;
+  return <AppTodo />;
 }
 
 export default App;
