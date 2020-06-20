@@ -60,7 +60,9 @@ function ToDoItem({ todo, index, onChange, toDoList }) {
               >
                 <i className="fas fa-pen"></i>
               </button>
-              <button onClick={() => removeTodo(todo.id)}>&times;</button>
+              <button onClick={() => removeTodo(todo.id)}>
+                <i className="fas fa-trash-alt"></i>
+              </button>
             </span>
           </li>
         </>
@@ -85,9 +87,11 @@ function ToDoItem({ todo, index, onChange, toDoList }) {
               type="edit"
               onClick={actionDisableEditor}
             >
-              <i className="fas fa-pen"></i>
+              <i className="fas fa-check"></i>
             </button>
-            <button onClick={() => removeTodo(todo.id)}>&times;</button>
+            <button onClick={() => removeTodo(todo.id)}>
+              <i className="fas fa-trash-alt"></i>
+            </button>
           </span>
         </li>
       )}
