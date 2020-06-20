@@ -6,7 +6,7 @@ import WrapperTodoList from "./WrapperTodoList";
 
 function ToDo() {
   const [todoLists, setTodoLists] = useState([
-    { id: 5, mainTitle: "Make ToDo app" },
+    { id: 5, mainTitle: "Make ToDo app " },
     { id: 6, mainTitle: "Справи на тиждень" },
     { id: 7, mainTitle: "Домашні справи" },
   ]);
@@ -17,10 +17,17 @@ function ToDo() {
   return (
     <div className="mainbox">
       <div className="lists_left_side">
-        <MainLists
-          todoLists={todoLists}
-          removeOneMainList={removeOneMainList}
-        />
+        {todoLists.length ? (
+          <MainLists
+            todoLists={todoLists}
+            removeOneMainList={removeOneMainList}
+          />
+        ) : (
+          <p>
+            You are a happy man because you don't have any plans{" "}
+            <i className="far fa-thumbs-up"></i>
+          </p>
+        )}
       </div>
 
       <WrapperTodoList />

@@ -7,23 +7,30 @@
 }
 
 .lists_left_side {
+  box-sizing: border-box;
   display: flex;
+
   flex-direction: column;
   align-items: center;
   padding: 0.5rem 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 0.5rem;
-  // width: 30%;
+  width: 280px;
 }
 .OneList {
   list-style: none;
   margin: 0;
-
   font-size: large;
   padding: 0.5rem 1rem;
   padding-bottom: 2rem;
   font-weight: 600;
+}
+.OneMainList {
+  padding: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
 }
 
 .wrapper {

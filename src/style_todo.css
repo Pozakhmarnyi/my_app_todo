@@ -10,6 +10,8 @@
 }
 
 .lists_left_side {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,6 +26,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 0.5rem;
+  width: 280px;
 }
 
 .OneList {
@@ -33,6 +36,17 @@
   padding: 0.5rem 1rem;
   padding-bottom: 2rem;
   font-weight: 600;
+}
+
+.OneMainList {
+  padding: 0.3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 250px;
 }
 
 .wrapper {
