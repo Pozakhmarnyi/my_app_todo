@@ -1,13 +1,13 @@
 import React from "react";
-
+import "./style_todo.css";
 import ToDoList from "./components/ToDoList";
 import Context from "./context";
 import AddTodo from "./components/AddTodo";
 
-function WrapperTodoList() {
+function AppTodo() {
   const [todos, setTodos] = React.useState([
-    { id: 1, completed: false, title: "Добавити заголовок до кожного списку" },
-    { id: 2, completed: true, title: "Список списків" },
+    { id: 1, completed: false, title: "Купити хліб" },
+    { id: 2, completed: true, title: "Купити масло" },
     { id: 3, completed: false, title: "Купити молоко" },
   ]);
 
@@ -63,4 +63,4 @@ function WrapperTodoList() {
   );
 }
 
-export default WrapperTodoList;
+export default AppTodo;
