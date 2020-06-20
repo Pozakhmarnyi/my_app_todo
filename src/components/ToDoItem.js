@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useState } from "react";
 import Context from "../context";
-// import ToDoList from "./ToDoList";
+import ToDoList from "./ToDoList";
 
 //  function ToDoItem({ todo, index,  onChange  ==    довільна назва ф-ції})
 // подію в батьківський елемент  передаю так в метод-> <input type="checkbox"  ПОДІЯ onChange={() => МЕТОД onChange(todo.id)} />
@@ -11,10 +11,10 @@ function ToDoItem({ todo, index, onChange, toDoList }) {
 
   const [editor, setEditor] = useState(false);
   const [text, setText] = useState(todo.title);
-
-  let styleDone = "";
+  const [editID, setEditID] = useState(null);
+  const classes = [];
   if (todo.completed) {
-    styleDone += "done";
+    classes.push("done");
   }
 
   function actionEnableEditor() {
@@ -22,12 +22,13 @@ function ToDoItem({ todo, index, onChange, toDoList }) {
   }
 
   function actionDisableEditor() {
-    toDoList.map((element) => {
+    let newList = [];
+    newList = toDoList.map((element) => {
       if (element.id === todo.id) element.title = text;
     });
     console.log(toDoList);
     // console.log(text);
-
+    setEditID(todo.id);
     setEditor(false);
   }
   function actionSaveEditor(event) {
@@ -39,7 +40,10 @@ function ToDoItem({ todo, index, onChange, toDoList }) {
       {!editor && (
         <>
           <li className="ToDoItem">
-            <span className={styleDone}>
+            {/* оскільки className має бути сткорою 
+      щоб треба перевести масив до СТРОКИ використовую метод join
+       join - об"єднує кожен ЕЛЕМЕНТ масиву через " " */}
+            <span className={classes.join(" ")}>
               <input
                 type="checkbox"
                 checked={todo.completed}
@@ -64,7 +68,10 @@ function ToDoItem({ todo, index, onChange, toDoList }) {
 
       {editor && (
         <li className="ToDoItem">
-          <span className={styleDone}>
+          {/* оскільки className має бути сткорою 
+  щоб треба перевести масив до СТРОКИ використовую метод join
+   join - об"єднує кожен ЕЛЕМЕНТ масиву через " " */}
+          <span className={classes.join(" ")}>
             <input
               type="text"
               checked={todo.completed}
