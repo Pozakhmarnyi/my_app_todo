@@ -11,12 +11,18 @@ function ToDo() {
     { id: 7, mainTitle: "Домашні справи" },
   ]);
 
+  const [visibleAddList, setHide] = useState(false);
+
   function removeOneMainList(id) {
     setTodoLists(todoLists.filter((oneOfList) => oneOfList.id !== id));
   }
   return (
     <div className="mainbox">
       <div className="lists_left_side">
+        <i className="fas fa-plus-circle PlusLists"></i>
+        {!visibleAddList && <>Стартова невидима ділянка</>}
+        {visibleAddList && <></>}
+
         {todoLists.length ? (
           <MainLists
             todoLists={todoLists}
