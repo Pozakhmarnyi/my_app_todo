@@ -21,6 +21,18 @@ function ToDo() {
   function removeOneMainList(id) {
     setTodoLists(todoLists.filter((oneOfList) => oneOfList.id !== id));
   }
+
+  function addTodoList(mainTitle) {
+    setTodoLists(
+      todoLists.concat([
+        {
+          mainTitle,
+          id: Date.now(),
+        },
+      ])
+    );
+  }
+
   return (
     <div className="mainbox">
       <div className="lists_left_side">
@@ -31,7 +43,10 @@ function ToDo() {
         {!visibleAddList && <></>}
         {visibleAddList && (
           <>
-            <AddOneList VisibilitySwitch={VisibilitySwitch} />
+            <AddOneList
+              VisibilitySwitch={VisibilitySwitch}
+              onCreateList={addTodoList}
+            />
           </>
         )}
 
