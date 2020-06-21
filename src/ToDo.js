@@ -3,6 +3,7 @@ import "./style_todo.css";
 import MainLists from "./components/MainLists";
 import { useState } from "react";
 import WrapperTodoList from "./WrapperTodoList";
+import AddOneList from "./components/AddOneList";
 
 function ToDo() {
   const [todoLists, setTodoLists] = useState([
@@ -13,15 +14,26 @@ function ToDo() {
 
   const [visibleAddList, setHide] = useState(false);
 
+  function VisibilitySwitch() {
+    setHide(false);
+  }
+
   function removeOneMainList(id) {
     setTodoLists(todoLists.filter((oneOfList) => oneOfList.id !== id));
   }
   return (
     <div className="mainbox">
       <div className="lists_left_side">
-        <i className="fas fa-plus-circle PlusLists"></i>
-        {!visibleAddList && <>Стартова невидима ділянка</>}
-        {visibleAddList && <></>}
+        <i
+          className="fas fa-plus-circle PlusLists"
+          onClick={() => setHide(true)}
+        ></i>
+        {!visibleAddList && <></>}
+        {visibleAddList && (
+          <>
+            <AddOneList VisibilitySwitch={VisibilitySwitch} />
+          </>
+        )}
 
         {todoLists.length ? (
           <MainLists
