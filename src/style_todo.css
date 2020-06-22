@@ -85,4 +85,12 @@
   font-size: 40px;
   color: #ffae00;
 }
+
+.inputAddList {
+  margin: 0.8rem;
+}
+
+.hide {
+  display: none;
+}
 /*# sourceMappingURL=style_todo.css.map */

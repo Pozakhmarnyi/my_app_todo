@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
-function AddOneList({ VisibilitySwitch, onCreateList }) {
+function AddOneList({ onCreateList }) {
   const [value, setValue] = useState("");
+
+  let styleInput = "inputAddList";
 
   function submitHandler(event) {
     event.preventDefault();
@@ -13,12 +15,10 @@ function AddOneList({ VisibilitySwitch, onCreateList }) {
   }
 
   return (
-    <form style={{ marginBottom: `1rem` }} onSubmit={submitHandler}>
+    <form className={styleInput} onSubmit={submitHandler}>
       <input value={value} onChange={(event) => setValue(event.target.value)} />
-      <button type="submit">
-        {/* onClick={VisibilitySwitch} */}
-        Add
-      </button>{" "}
+
+      <button type="submit">Add</button>
     </form>
   );
 }

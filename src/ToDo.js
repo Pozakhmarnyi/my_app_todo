@@ -14,10 +14,6 @@ function ToDo() {
 
   const [visibleAddList, setHide] = useState(false);
 
-  function VisibilitySwitch() {
-    setHide(false);
-  }
-
   function removeOneMainList(id) {
     setTodoLists(todoLists.filter((oneOfList) => oneOfList.id !== id));
   }
@@ -31,6 +27,7 @@ function ToDo() {
         },
       ])
     );
+    setHide(false);
   }
 
   return (
@@ -40,13 +37,10 @@ function ToDo() {
           className="fas fa-plus-circle PlusLists"
           onClick={() => setHide(true)}
         ></i>
-        {!visibleAddList && <></>}
+
         {visibleAddList && (
           <>
-            <AddOneList
-              VisibilitySwitch={VisibilitySwitch}
-              onCreateList={addTodoList}
-            />
+            <AddOneList onCreateList={addTodoList} />
           </>
         )}
 
