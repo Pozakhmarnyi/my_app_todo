@@ -4,16 +4,22 @@ import ToDoList from "./components/ToDoList";
 import Context from "./context";
 import AddTodo from "./components/AddTodo";
 
-function WrapperTodoList() {
-  const [todos, setTodos] = React.useState([
-    { id: 1, completed: false, title: "Добавити заголовок до кожного списку" },
-    { id: 2, completed: true, title: "Список списків" },
-    { id: 3, completed: false, title: "Купити молоко" },
-  ]);
+function WrapperTodoList({ sendTodos }) {
+  // console.log(sendTodos[0].vkladenist);
 
-  // function actionEditList() {
-  //   setTodos(props);
-  // }
+  let getTodos = [
+    {
+      id: 15,
+      completed: true,
+      title: "Чому блін докулупується до мого пропса - sendTodos? ",
+    },
+  ];
+
+  if (sendTodos[0].pageOfItem !== undefined) {
+    getTodos = sendTodos[0].pageOfItem;
+  }
+
+  const [todos, setTodos] = React.useState(getTodos);
 
   function toggleTodo(id) {
     setTodos(

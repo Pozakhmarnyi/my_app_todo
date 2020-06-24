@@ -7,9 +7,29 @@ import AddOneList from "./components/AddOneList";
 
 function ToDo() {
   const [todoLists, setTodoLists] = useState([
-    { id: 5, mainTitle: "Make ToDo app " },
-    { id: 6, mainTitle: "Справи на тиждень" },
-    { id: 7, mainTitle: "Домашні справи" },
+    {
+      id: 5,
+      mainTitle: "Список №1 ",
+      pageOfItem: [
+        {
+          id: 1,
+          completed: true,
+          title: "добратись сюди і вивести у список",
+        },
+        {
+          id: 2,
+          completed: false,
+          title: "Зрозуміти як задавати кожному обєкту ключ",
+        },
+        {
+          id: 3,
+          completed: false,
+          title: "Надати різні стани до різних списків",
+        },
+      ],
+    },
+    { id: 6, mainTitle: "Справи на тиждень", pageOfItem: [] },
+    { id: 7, mainTitle: "Домашні справи", pageOfItem: [] },
   ]);
 
   const [visibleAddList, setHide] = useState(false);
@@ -24,11 +44,20 @@ function ToDo() {
         {
           mainTitle,
           id: Date.now(),
+          // vkladenist: [
+          //   {
+          //     title,
+          //     id: Date.now(),
+          //     completed: false,
+          //   },
+          // ],
         },
       ])
     );
     setHide(false);
   }
+
+  // let sendName = todoLists[0].mainTitle;
 
   return (
     <div className="mainbox">
@@ -56,8 +85,13 @@ function ToDo() {
           </p>
         )}
       </div>
-
-      <WrapperTodoList />
+      {/* <WrapperTodoList sendTodos={todoLists} /> */}
+      {todoLists.length ? (
+        <WrapperTodoList sendTodos={todoLists} />
+      ) : (
+        // <WrapperTodoList />
+        <p> Створи список</p>
+      )}
     </div>
   );
 }

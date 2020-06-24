@@ -1,8 +1,6 @@
 import React from "react";
 
 function MainLists({ todoLists, removeOneMainList }) {
-  console.log(todoLists);
-
   const oneLists = todoLists.map((oneOfList) => (
     <li className="OneMainList" key={oneOfList.id}>
       {oneOfList.mainTitle}

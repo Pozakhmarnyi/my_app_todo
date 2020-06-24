@@ -22,12 +22,11 @@ function ToDoItem({ todo, index, onChange, toDoList }) {
 
   function actionDisableEditor() {
     let newList = [];
-    newList = toDoList.map((element) => {
+    toDoList.map((element) => {
       if (element.id === todo.id) element.title = text;
+      return newList;
     });
-    console.log(toDoList);
-    // console.log(text);
-    // setEditID(todo.id);
+
     setEditor(false);
   }
   function actionSaveEditor(event) {
