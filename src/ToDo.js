@@ -28,7 +28,22 @@ function ToDo() {
         },
       ],
     },
-    { id: 6, mainTitle: "Справи на тиждень", pageOfItem: [] },
+    {
+      id: 6,
+      mainTitle: "Справи на тиждень",
+      pageOfItem: [
+        {
+          id: 12,
+          completed: false,
+          title: "Зрозуміти як задавати кожному обєкту ключ",
+        },
+        {
+          id: 13,
+          completed: false,
+          title: "Надати різні стани до різних списків",
+        },
+      ],
+    },
     { id: 7, mainTitle: "Домашні справи", pageOfItem: [] },
   ]);
 
@@ -79,9 +94,10 @@ function ToDo() {
             removeOneMainList={removeOneMainList}
           />
         ) : (
-          <p>
-            You are a happy man because you don't have any plans{" "}
-            <i className="far fa-thumbs-up"></i>
+          <p className="DoYouHaveAnyPlans">
+            Click <i className="fas fa-arrow-up"></i> here
+            {/* You are a happy man because you don't have any plans{" "} */}
+            {/* <i className="far fa-thumbs-up"></i> */}
           </p>
         )}
       </div>
@@ -90,7 +106,10 @@ function ToDo() {
         <WrapperTodoList sendTodos={todoLists} />
       ) : (
         // <WrapperTodoList />
-        <p> Створи список</p>
+        <p className="SurpriseYourself">
+          {" "}
+          Surprise yourself, create your to-do list!
+        </p>
       )}
     </div>
   );

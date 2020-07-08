@@ -11,13 +11,16 @@ function WrapperTodoList({ sendTodos }) {
     {
       id: 15,
       completed: true,
-      title: "Чому блін докулупується до мого пропса - sendTodos? ",
+      title: "You have created your first list!",
     },
   ];
 
+  // Здається так не працює
   if (sendTodos[0].pageOfItem !== undefined) {
     getTodos = sendTodos[0].pageOfItem;
   }
+
+  let pageName = sendTodos[0].mainTitle;
 
   const [todos, setTodos] = React.useState(getTodos);
 
@@ -57,7 +60,7 @@ function WrapperTodoList({ sendTodos }) {
     // <Context.Provider value={{ КЛЮЧ : ЗНачення  }}>
     <Context.Provider value={{ removeTodo }}>
       <div className="wrapper">
-        <h1>Hello my new app</h1>
+        <h1>{pageName}</h1>
         <AddTodo onCreate={addTodo} />
         {todos.length ? (
           <ToDoList todos={todos} onToggle={toggleTodo} />
