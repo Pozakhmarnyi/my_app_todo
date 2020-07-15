@@ -15,7 +15,7 @@ function WrapperTodoList({ sendTodos }) {
     },
   ];
 
-  // Здається так не працює
+  // працює !
   if (sendTodos[0].pageOfItem !== undefined) {
     getTodos = sendTodos[0].pageOfItem;
   }

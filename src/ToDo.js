@@ -1,7 +1,7 @@
 import React from "react";
 import "./style_todo.css";
 import MainLists from "./components/MainLists";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import WrapperTodoList from "./WrapperTodoList";
 import AddOneList from "./components/AddOneList";
 
@@ -9,7 +9,7 @@ function ToDo() {
   const [todoLists, setTodoLists] = useState([
     {
       id: 5,
-      mainTitle: "Список №1 ",
+      mainTitle: "Список №0 ",
       pageOfItem: [
         {
           id: 1,
@@ -18,7 +18,7 @@ function ToDo() {
         },
         {
           id: 2,
-          completed: false,
+          completed: true,
           title: "Зрозуміти як задавати кожному обєкту ключ",
         },
         {
@@ -30,7 +30,7 @@ function ToDo() {
     },
     {
       id: 6,
-      mainTitle: "Справи на тиждень",
+      mainTitle: "1 !!!",
       pageOfItem: [
         {
           id: 12,
@@ -44,7 +44,7 @@ function ToDo() {
         },
       ],
     },
-    { id: 7, mainTitle: "Домашні справи", pageOfItem: [] },
+    { id: 7, mainTitle: "2", pageOfItem: [] },
   ]);
 
   const [visibleAddList, setHide] = useState(false);
@@ -59,20 +59,24 @@ function ToDo() {
         {
           mainTitle,
           id: Date.now(),
-          // vkladenist: [
-          //   {
-          //     title,
-          //     id: Date.now(),
-          //     completed: false,
-          //   },
-          // ],
+          pageOfItem: [],
         },
       ])
     );
     setHide(false);
   }
 
-  // let sendName = todoLists[0].mainTitle;
+  const [ind, setInd] = useState(0);
+
+  function getIndex(index) {
+    setInd(index);
+  }
+
+  function getNewOneList(getTodos) {
+    const clonedLists = [...todoLists];
+    clonedLists[ind].pageOfItem = getTodos;
+    setTodoLists(clonedLists);
+  }
 
   return (
     <div className="mainbox">
@@ -92,20 +96,22 @@ function ToDo() {
           <MainLists
             todoLists={todoLists}
             removeOneMainList={removeOneMainList}
+            getIndex={getIndex}
           />
         ) : (
           <p className="DoYouHaveAnyPlans">
             Click <i className="fas fa-arrow-up"></i> here
-            {/* You are a happy man because you don't have any plans{" "} */}
-            {/* <i className="far fa-thumbs-up"></i> */}
           </p>
         )}
       </div>
-      {/* <WrapperTodoList sendTodos={todoLists} /> */}
+
       {todoLists.length ? (
-        <WrapperTodoList sendTodos={todoLists} />
+        <WrapperTodoList
+          sendTodos={todoLists}
+          ind={ind}
+          getNewOneList={getNewOneList}
+        />
       ) : (
-        // <WrapperTodoList />
         <p className="SurpriseYourself">
           {" "}
           Surprise yourself, create your to-do list!
