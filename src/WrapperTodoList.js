@@ -55,6 +55,7 @@ function WrapperTodoList({ sendTodos, ind, getNewOneList }) {
         },
       ])
     );
+    getNewOneList(getTodos);
   }
 
   // useEffect(() => {
