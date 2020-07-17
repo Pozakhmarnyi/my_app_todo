@@ -1,10 +1,17 @@
 import React from "react";
 
-function MainLists({ todoLists, removeOneMainList }) {
-  const oneLists = todoLists.map((oneOfList) => (
-    <li className="OneMainList" key={oneOfList.id}>
+function MainLists({ todoLists, removeOneMainList, getIndex }) {
+  const oneList = todoLists.map((oneOfList, index) => (
+    <li
+      className="lists_left_side__OneMainList"
+      key={oneOfList.id}
+      onClick={() => getIndex(index)}
+    >
       {oneOfList.mainTitle}
-      <button onClick={() => removeOneMainList(oneOfList.id)}>
+      <button
+        className="button"
+        onClick={() => removeOneMainList(oneOfList.id)}
+      >
         <i className="fas fa-trash-alt"></i>
       </button>
     </li>
@@ -12,7 +19,7 @@ function MainLists({ todoLists, removeOneMainList }) {
 
   return (
     <>
-      <ul className="OneList">{oneLists} </ul>
+      <ul className="lists_left_side__AllMainList">{oneList} </ul>
     </>
   );
 }

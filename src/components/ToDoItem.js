@@ -11,9 +11,10 @@ function ToDoItem({ todo, index, onChange, toDoList }) {
   const [editor, setEditor] = useState(false);
   const [text, setText] = useState(todo.title);
   // const [editID, setEditID] = useState(null);
-  let styleDone = "";
+
+  let styleToDoItem = "ToDoItem ";
   if (todo.completed) {
-    styleDone += "done";
+    styleToDoItem += "done";
   }
 
   function actionEnableEditor() {
@@ -37,8 +38,8 @@ function ToDoItem({ todo, index, onChange, toDoList }) {
     <>
       {!editor && (
         <>
-          <li className="ToDoItem">
-            <span className={styleDone}>
+          <li className={styleToDoItem}>
+            <span>
               <input
                 type="checkbox"
                 checked={todo.completed}
@@ -64,8 +65,8 @@ function ToDoItem({ todo, index, onChange, toDoList }) {
       )}
 
       {editor && (
-        <li className="ToDoItem">
-          <span className={styleDone}>
+        <li className={styleToDoItem}>
+          <span>
             <input
               type="text"
               checked={todo.completed}
@@ -75,7 +76,7 @@ function ToDoItem({ todo, index, onChange, toDoList }) {
           </span>
           <span className="space_for_button">
             <button
-              className="edit_title"
+              className="ToDoItem__edit_title"
               type="edit"
               onClick={actionDisableEditor}
             >

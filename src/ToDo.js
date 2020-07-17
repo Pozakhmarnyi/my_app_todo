@@ -9,28 +9,29 @@ function ToDo() {
   const [todoLists, setTodoLists] = useState([
     {
       id: 5,
-      mainTitle: "Список №0 ",
+      mainTitle: "My list #1 ",
       pageOfItem: [
         {
           id: 1,
           completed: true,
-          title: "добратись сюди і вивести у список",
+          title: "Make good style",
         },
         {
           id: 2,
           completed: true,
-          title: "Зрозуміти як задавати кожному обєкту ключ",
+          title: "Wonderful font",
         },
         {
           id: 3,
           completed: false,
-          title: "Надати різні стани до різних списків",
+          title:
+            "Коректно передавати новий список( з новою кулькістю поінтів) до головної тудушки",
         },
       ],
     },
     {
       id: 6,
-      mainTitle: "1 !!!",
+      mainTitle: "Second list",
       pageOfItem: [
         {
           id: 12,
@@ -46,6 +47,19 @@ function ToDo() {
     },
     { id: 7, mainTitle: "2", pageOfItem: [] },
   ]);
+
+  // // Add to local storage
+  // useEffect(() => {
+  //   let row = localStorage.getItem("todoLists") || [];
+  //   setTodoLists(JSON.parse(row));
+  // });
+
+  // useEffect(() => {
+  //   localStorage.setItem("todoLists", JSON.stringify(todoLists));
+  //   console.log("Hello ! I use - useEffect");
+  // }, [todoLists]);
+
+  // // ==================================
 
   const [visibleAddList, setHide] = useState(false);
 
@@ -82,7 +96,7 @@ function ToDo() {
     <div className="mainbox">
       <div className="lists_left_side">
         <i
-          className="fas fa-plus-circle PlusLists"
+          className="fas fa-plus-circle lists_left_side__PlusLists"
           onClick={() => setHide(true)}
         ></i>
 
@@ -99,7 +113,7 @@ function ToDo() {
             getIndex={getIndex}
           />
         ) : (
-          <p className="DoYouHaveAnyPlans">
+          <p className="lists_left_side__Click_here">
             Click <i className="fas fa-arrow-up"></i> here
           </p>
         )}

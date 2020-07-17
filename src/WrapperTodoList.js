@@ -1,12 +1,9 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
 import ToDoList from "./components/ToDoList";
 import Context from "./context";
 import AddTodo from "./components/AddTodo";
 
-function WrapperTodoList({ sendTodos }) {
-  // console.log(sendTodos[0].vkladenist);
-
+function WrapperTodoList({ sendTodos, ind, getNewOneList }) {
   let getTodos = [
     {
       id: 15,
@@ -16,13 +13,17 @@ function WrapperTodoList({ sendTodos }) {
   ];
 
   // працює !
-  if (sendTodos[0].pageOfItem !== undefined) {
-    getTodos = sendTodos[0].pageOfItem;
+  if (sendTodos[ind].pageOfItem !== undefined) {
+    getTodos = sendTodos[ind].pageOfItem;
   }
 
-  let pageName = sendTodos[0].mainTitle;
+  const [todos, setTodos] = useState(getTodos);
+  useEffect(() => {
+    // Обновляем
+    setTodos(getTodos);
+  }, [ind]);
 
-  const [todos, setTodos] = React.useState(getTodos);
+  let pageName = sendTodos[ind].mainTitle;
 
   function toggleTodo(id) {
     setTodos(
@@ -56,11 +57,17 @@ function WrapperTodoList({ sendTodos }) {
     );
   }
 
+  // useEffect(() => {
+  //   getNewOneList(getTodos);
+  // }, []);
+
   return (
     // <Context.Provider value={{ КЛЮЧ : ЗНачення  }}>
     <Context.Provider value={{ removeTodo }}>
       <div className="wrapper">
-        <h1>{pageName}</h1>
+        <h1 className="wrapper__title">
+          <span className="wrapper__title--font">{pageName} </span>{" "}
+        </h1>
         <AddTodo onCreate={addTodo} />
         {todos.length ? (
           <ToDoList todos={todos} onToggle={toggleTodo} />

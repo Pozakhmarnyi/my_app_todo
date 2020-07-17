@@ -1,17 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
 * {
   font-family: "Raleway", sans-serif;
+  -webkit-transition: ease all 1s;
+  transition: ease all 1s;
+}
+
+body {
+  background: #f1f1f1;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: auto;
 }
 
 .mainbox {
-  padding-top: 6rem;
-  margin: 0 auto;
   width: 900px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  background: white;
+  border-radius: 20px;
 }
 
 .lists_left_side {
@@ -28,22 +53,37 @@
       -ms-flex-align: center;
           align-items: center;
   padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-bottom: 0.5rem;
   width: 280px;
+  border-radius: 20px 00px 0px 20px;
+  background: #560979;
+  background: linear-gradient(34deg, #560979 0%, #00f1ff 100%);
 }
 
-.OneList {
+.lists_left_side__PlusLists {
+  padding-top: 10px;
+  font-size: 47px;
+  color: white;
+}
+
+.lists_left_side__PlusLists:hover {
+  cursor: pointer;
+}
+
+.lists_left_side__AllMainList {
   list-style: none;
   margin: 0;
-  font-size: large;
+  color: white;
+  font-size: 26px;
   padding: 0.5rem 1rem;
   padding-bottom: 2rem;
   font-weight: 600;
 }
 
-.OneMainList {
+.lists_left_side__OneMainList button {
+  display: none;
+}
+
+.lists_left_side__OneMainList {
   padding: 0.3rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -54,16 +94,72 @@
   width: 250px;
 }
 
+.lists_left_side__OneMainList:hover {
+  text-decoration: underline;
+  -webkit-text-decoration-color: rgba(207, 206, 206, 0.651);
+          text-decoration-color: rgba(207, 206, 206, 0.651);
+}
+
+.lists_left_side__OneMainList:hover button {
+  cursor: pointer;
+  display: inline-block;
+  background: none;
+  font-size: 20px;
+  border: none;
+  outline: none;
+}
+
+.lists_left_side__Click_here {
+  color: white;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+  font-weight: 1, 400;
+}
+
 .wrapper {
-  margin: 0 auto;
-  width: 600px;
+  padding: 10px;
+  width: 100%;
+  border-radius: 0px 20px 20px 0px;
+  background: white;
+  background: linear-gradient(53deg, white 49%, #2de0fd 76%, #78a1ff 100%);
+}
+
+.wrapper__title {
+  font-size: 32px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wrapper__title--font {
+  letter-spacing: 1.5px;
+  font-weight: 650;
+  font-style: italic;
+  font-family: "Lato", sans-serif;
+}
+
+.red {
+  color: red;
 }
 
 .done {
   text-decoration: line-through;
+  color: gray;
+  background: white !important;
+  background: linear-gradient(254deg, white 0%, #f0ffb5 62%, rgba(129, 255, 0, 0.75) 100%) !important;
 }
 
 .ToDoItem {
+  background: white;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 19px;
+  font-weight: 600;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -81,32 +177,30 @@
           box-sizing: border-box;
 }
 
-.ToDoItem :hover .space_for_button {
-  display: inline !important;
-  color: red;
+.ToDoItem__edit_title {
+  color: #33fa01;
 }
 
-.PlusLists {
-  font-size: 40px;
-  color: #ffae00;
+.ToDoItem button {
+  display: none !important;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 18px;
+}
+
+.ToDoItem:hover button {
+  display: inline-block !important;
+  cursor: pointer;
 }
 
 .inputAddList {
   margin: 0.8rem;
 }
 
-.hide {
-  display: none;
-}
-
 .SurpriseYourself {
   margin: 3rem auto;
   font-size: 26px;
-  font-weight: 1, 700;
-}
-
-.DoYouHaveAnyPlans {
-  font-size: 22px;
-  font-weight: 1, 400;
+  font-family: "Lato", sans-serif;
 }
 /*# sourceMappingURL=style_todo.css.map */
