@@ -70,6 +70,7 @@ function ToDoItem({ todo, index, onChange, toDoList }) {
         <li className={styleToDoItem}>
           <span>
             <input
+              className="imput_editor"
               type="text"
               checked={todo.completed}
               value={text}

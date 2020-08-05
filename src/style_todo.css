@@ -286,13 +286,13 @@ body {
   cursor: pointer;
 }
 
-.inputAddList {
-  margin: 0.8rem;
-}
-
 .SurpriseYourself {
   margin: 3rem auto;
   font-size: 26px;
   font-family: "Lato", sans-serif;
+}
+
+.imput_editor {
+  font-size: 18px;
 }
 /*# sourceMappingURL=style_todo.css.map */
