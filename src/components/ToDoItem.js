@@ -41,12 +41,14 @@ function ToDoItem({ todo, index, onChange, toDoList }) {
           <li className={styleToDoItem}>
             <span>
               <input
+                id={todo.id}
                 type="checkbox"
                 checked={todo.completed}
                 onChange={() => onChange(todo.id)}
               />
               <strong> {index + 1} </strong>
-              {todo.title}
+
+              <label htmlFor={todo.id}>{todo.title}</label>
             </span>
             <span className="space_for_button">
               <button

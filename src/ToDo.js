@@ -9,43 +9,47 @@ function ToDo() {
   const [todoLists, setTodoLists] = useState([
     {
       id: 5,
-      mainTitle: "My list #1 ",
+      mainTitle: "My app",
       pageOfItem: [
         {
           id: 1,
           completed: true,
-          title: "Make good style",
+          title: "test the program!",
         },
         {
           id: 2,
           completed: true,
-          title: "Wonderful font",
+          title: "Make good style and add fond",
         },
+
         {
           id: 3,
           completed: false,
-          title:
-            "Коректно передавати новий список( з новою кулькістю поінтів) до головної тудушки",
+          title: "get feedback about app",
         },
       ],
     },
     {
       id: 6,
-      mainTitle: "Second list",
+      mainTitle: "Shop list",
       pageOfItem: [
         {
           id: 12,
           completed: false,
-          title: "Зрозуміти як задавати кожному обєкту ключ",
+          title: "Milk",
         },
         {
           id: 13,
           completed: false,
-          title: "Надати різні стани до різних списків",
+          title: "apples 1 kg",
+        },
+        {
+          id: 14,
+          completed: true,
+          title: "Beer and snacks",
         },
       ],
     },
-    { id: 7, mainTitle: "2", pageOfItem: [] },
   ]);
 
   // // Add to local storage

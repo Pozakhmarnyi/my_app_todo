@@ -16,6 +16,17 @@ function WrapperTodoList({ sendTodos, ind, getNewOneList }) {
   if (sendTodos[ind].pageOfItem !== undefined) {
     getTodos = sendTodos[ind].pageOfItem;
   }
+  // else if (sendTodos[ind].pageOfItem === undefined) {
+  //   sendTodos[ind].pageOfItem = getTodos;
+  // } else {
+  //   sendTodos[ind].pageOfItem = [
+  //     {
+  //       id: 1512,
+  //       completed: true,
+  //       title: "You have created your first list!",
+  //     },
+  //   ];
+  // }
 
   const [todos, setTodos] = useState(getTodos);
   useEffect(() => {
@@ -58,9 +69,9 @@ function WrapperTodoList({ sendTodos, ind, getNewOneList }) {
     getNewOneList(getTodos);
   }
 
-  // useEffect(() => {
-  //   getNewOneList(getTodos);
-  // }, []);
+  useEffect(() => {
+    getNewOneList(todos);
+  }, [todos]);
 
   return (
     // <Context.Provider value={{ КЛЮЧ : ЗНачення  }}>
@@ -73,7 +84,7 @@ function WrapperTodoList({ sendTodos, ind, getNewOneList }) {
         {todos.length ? (
           <ToDoList todos={todos} onToggle={toggleTodo} />
         ) : (
-          <p>No todos!</p>
+          <p>No todos !</p>
         )}
       </div>
     </Context.Provider>

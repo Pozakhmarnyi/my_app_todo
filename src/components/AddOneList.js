@@ -15,10 +15,16 @@ function AddOneList({ onCreateList }) {
   }
 
   return (
-    <form className={styleInput} onSubmit={submitHandler}>
-      <input value={value} onChange={(event) => setValue(event.target.value)} />
+    <form className="wrapper__form noPad" onSubmit={submitHandler}>
+      <input
+        className="wrapper__input"
+        value={value}
+        onChange={(event) => setValue(event.target.value)}
+      />
 
-      <button type="submit">Add</button>
+      <button className="wrapper__button" type="submit">
+        Add
+      </button>
     </form>
   );
 }

@@ -13,11 +13,17 @@ function AddTodo({ onCreate }) {
       setValue("");
     }
   }
-
+  // style={{ marginBottom: `1rem` }}
   return (
-    <form style={{ marginBottom: `1rem` }} onSubmit={submitHandler}>
-      <input value={value} onChange={(event) => setValue(event.target.value)} />
-      <button type="submit">Add todo</button>{" "}
+    <form className="wrapper__form" onSubmit={submitHandler}>
+      <input
+        className="wrapper__input"
+        value={value}
+        onChange={(event) => setValue(event.target.value)}
+      />
+      <button className="wrapper__button" type="submit">
+        Add todo
+      </button>{" "}
     </form>
   );
 }
