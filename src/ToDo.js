@@ -53,14 +53,14 @@ function ToDo() {
   ]);
 
   // Add to local storage
-  useEffect(() => {
-    const row = localStorage.getItem("todoLists") || [];
-    setTodoLists(JSON.parse(row));
-  }, []);
+  // useEffect(() => {
+  //   const row = localStorage.getItem("todoLists") || [];
+  //   setTodoLists(JSON.parse(row));
+  // }, []);
 
-  useEffect(() => {
-    localStorage.setItem("todoLists", JSON.stringify(todoLists));
-  }, [todoLists]);
+  // useEffect(() => {
+  //   localStorage.setItem("todoLists", JSON.stringify(todoLists));
+  // }, [todoLists]);
 
   const [visibleAddList, setHide] = useState(false);
   const [ind, setInd] = useState(0);
