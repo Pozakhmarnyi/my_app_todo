@@ -2,15 +2,11 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import Context from "../context";
 
-//  function ToDoItem({ todo, index,  onChange  ==    довільна назва ф-ції})
-// подію в батьківський елемент  передаю так в метод-> <input type="checkbox"  ПОДІЯ onChange={() => МЕТОД onChange(todo.id)} />
-
 function ToDoItem({ todo, index, onChange, toDoList }) {
   const { removeTodo } = useContext(Context);
 
   const [editor, setEditor] = useState(false);
   const [text, setText] = useState(todo.title);
-  // const [editID, setEditID] = useState(null);
 
   let styleToDoItem = "ToDoItem ";
   if (todo.completed) {

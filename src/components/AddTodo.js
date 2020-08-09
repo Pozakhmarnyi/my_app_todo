@@ -4,16 +4,14 @@ function AddTodo({ onCreate }) {
   const [value, setValue] = useState("");
 
   function submitHandler(event) {
-    // щоб сторінка не перегружалась
     event.preventDefault();
 
-    // метод .trim видаляє пробіли
     if (value.trim()) {
       onCreate(value);
       setValue("");
     }
   }
-  // style={{ marginBottom: `1rem` }}
+
   return (
     <form className="wrapper__form" onSubmit={submitHandler}>
       <input
