@@ -52,23 +52,37 @@ function ToDo() {
     },
   ]);
 
-  // // Add to local storage
+  // Add to local storage
   // useEffect(() => {
   //   let row = localStorage.getItem("todoLists") || [];
   //   setTodoLists(JSON.parse(row));
-  // });
+  // }, []);
 
   // useEffect(() => {
   //   localStorage.setItem("todoLists", JSON.stringify(todoLists));
-  //   console.log("Hello ! I use - useEffect");
   // }, [todoLists]);
 
   // // ==================================
 
   const [visibleAddList, setHide] = useState(false);
+  const [ind, setInd] = useState(0);
 
   function removeOneMainList(id) {
+    let lengthOFlist = todoLists.length;
+    let lastElemIndex = lengthOFlist - 1;
+    console.log("Index:", ind, "lastElemIndex:", lastElemIndex);
+    if (ind === lastElemIndex) {
+      console.log(" if ind === lastElemIndex     СетІндекс ind - 1)");
+      setInd(0);
+      console.log(ind);
+    }
+
     setTodoLists(todoLists.filter((oneOfList) => oneOfList.id !== id));
+
+    console.log(
+      ind,
+      "ind - після зменшення інд на 1 і після видалення одного листа "
+    );
   }
 
   function addTodoList(mainTitle) {
@@ -84,15 +98,9 @@ function ToDo() {
     setHide(false);
   }
 
-  const [ind, setInd] = useState(0);
-
-  function getIndex(index) {
-    setInd(index);
-  }
-
-  function getNewOneList(getTodos) {
+  function getNewOneList(todos) {
     const clonedLists = [...todoLists];
-    clonedLists[ind].pageOfItem = getTodos;
+    clonedLists[ind].pageOfItem = todos;
     setTodoLists(clonedLists);
   }
 
@@ -114,7 +122,7 @@ function ToDo() {
           <MainLists
             todoLists={todoLists}
             removeOneMainList={removeOneMainList}
-            getIndex={getIndex}
+            setIndex={setInd}
           />
         ) : (
           <p className="lists_left_side__Click_here">

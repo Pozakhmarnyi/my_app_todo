@@ -3,8 +3,6 @@ import React, { useState } from "react";
 function AddOneList({ onCreateList }) {
   const [value, setValue] = useState("");
 
-  let styleInput = "inputAddList";
-
   function submitHandler(event) {
     event.preventDefault();
 

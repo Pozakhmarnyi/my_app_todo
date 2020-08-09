@@ -12,21 +12,9 @@ function WrapperTodoList({ sendTodos, ind, getNewOneList }) {
     },
   ];
 
-  // працює !
   if (sendTodos[ind].pageOfItem !== undefined) {
     getTodos = sendTodos[ind].pageOfItem;
   }
-  // else if (sendTodos[ind].pageOfItem === undefined) {
-  //   sendTodos[ind].pageOfItem = getTodos;
-  // } else {
-  //   sendTodos[ind].pageOfItem = [
-  //     {
-  //       id: 1512,
-  //       completed: true,
-  //       title: "You have created your first list!",
-  //     },
-  //   ];
-  // }
 
   const [todos, setTodos] = useState(getTodos);
   useEffect(() => {
