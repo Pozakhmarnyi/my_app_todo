@@ -36,14 +36,9 @@ function WrapperTodoList({ sendTodos, ind, getNewOneList }) {
   }
 
   function removeTodo(id) {
-    // метод  filter --> на кожній інтерації получаємо об"єкт todo
-    // а далі порівнюю todo.id == !id -- \це той що отримуємо\ не такий самий
-    // тоді залишаємо елемент в масиві
-
     setTodos(todos.filter((todo) => todo.id !== id));
   }
 
-  // .concat об"єднує масиви \ і все що в них \ в один новий масив
   function addTodo(title) {
     setTodos(
       todos.concat([
@@ -62,7 +57,6 @@ function WrapperTodoList({ sendTodos, ind, getNewOneList }) {
   }, [todos]);
 
   return (
-    // <Context.Provider value={{ КЛЮЧ : ЗНачення  }}>
     <Context.Provider value={{ removeTodo }}>
       <div className="wrapper">
         <h1 className="wrapper__title">

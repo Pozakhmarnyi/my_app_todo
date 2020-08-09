@@ -53,16 +53,14 @@ function ToDo() {
   ]);
 
   // Add to local storage
-  // useEffect(() => {
-  //   let row = localStorage.getItem("todoLists") || [];
-  //   setTodoLists(JSON.parse(row));
-  // }, []);
+  useEffect(() => {
+    const row = localStorage.getItem("todoLists") || [];
+    setTodoLists(JSON.parse(row));
+  }, []);
 
-  // useEffect(() => {
-  //   localStorage.setItem("todoLists", JSON.stringify(todoLists));
-  // }, [todoLists]);
-
-  // // ==================================
+  useEffect(() => {
+    localStorage.setItem("todoLists", JSON.stringify(todoLists));
+  }, [todoLists]);
 
   const [visibleAddList, setHide] = useState(false);
   const [ind, setInd] = useState(0);
@@ -70,19 +68,11 @@ function ToDo() {
   function removeOneMainList(id) {
     let lengthOFlist = todoLists.length;
     let lastElemIndex = lengthOFlist - 1;
-    console.log("Index:", ind, "lastElemIndex:", lastElemIndex);
+
     if (ind === lastElemIndex) {
-      console.log(" if ind === lastElemIndex     СетІндекс ind - 1)");
       setInd(0);
-      console.log(ind);
     }
-
     setTodoLists(todoLists.filter((oneOfList) => oneOfList.id !== id));
-
-    console.log(
-      ind,
-      "ind - після зменшення інд на 1 і після видалення одного листа "
-    );
   }
 
   function addTodoList(mainTitle) {
