@@ -16,6 +16,6 @@ https://picua.org/images/2020/08/10/48458a9feedbdcec69b973ef5c28efa7.jpg
 
 ## Author
 
-👤 **Mikhailo Pasternak**
+👤 **Mykhailo Pasternak**
 
 https://www.linkedin.com/in/mykhailo-pasternak/
